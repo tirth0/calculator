@@ -1,10 +1,11 @@
-import logo from './logo.svg';
+import React from 'react';
+import Ngip from './components/ngip/Ngip'
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      helloworld
+        <Ngip></Ngip>
     </div>
   );
 }
