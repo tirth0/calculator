@@ -3,7 +3,7 @@ import Table from './Table';
 import _ from 'lodash'
 import {rotate, rotate90, rotate270} from "2d-array-rotation";
 
-export default function TableUtil({n,dataX,dataY}) {
+export default function TableUtil({n,dataX,dataY,show}) {
     //state
     const [grid,setGrid] = useState([]);
     const [fwdPoly,setFwdPoly] = useState([]);
@@ -42,7 +42,7 @@ export default function TableUtil({n,dataX,dataY}) {
     return (
         <div>
             <button onClick = {()=>{constructTable()}}>Click</button>
-            <Table grid={grid} fwdPoly={fwdPoly} bkwdPoly={bkwdPoly}></Table>
+            {show?<Table grid={grid} fwdPoly={fwdPoly} bkwdPoly={bkwdPoly} n={n}></Table>:null}
         </div>
     )
 }

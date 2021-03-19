@@ -1,6 +1,6 @@
 import React from 'react'
 import {Table as Tbl} from 'react-bootstrap';
-export default function Table({grid,fwdPoly,bkwdPoly}) {
+export default function Table({grid,fwdPoly,bkwdPoly,n}) {
     
     const table = grid.map((row,i,g)=>{
         return <tr key={i}>
@@ -11,12 +11,25 @@ export default function Table({grid,fwdPoly,bkwdPoly}) {
             }
         </tr>
     });
+    const h = Array(n+1).fill(0);
+    const head = h.map((elem,i)=>{
+        if (i===0) return <th key={i}>x</th>
+        if (i===1) return <th key={i}>y</th>
+        else{
+            return <th key={i}>&Delta;{(i-2)===0?'':<sup>{i-2}</sup>}y</th>
+        }
+    })
     return (
         <div>
             Hulloa
             <Tbl striped bordered hover size="sm">
+                <thead>
+                    <tr>
+                        {head}
+                    </tr>
+                </thead>
                 <tbody>
-                {table}
+                    {table}
                 </tbody>
             </Tbl>
         </div>
