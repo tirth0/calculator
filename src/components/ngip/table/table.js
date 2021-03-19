@@ -3,24 +3,21 @@ import React,{useState} from 'react';
 
 export default function Table({n,dataX,dataY}) {
     //state
-    const [grid,setGrid] = useState(new Array(n+1).fill(new Array(n).fill(0)));
+    const [grid,setGrid] = useState([]);
 
     const constructTable = ()=>{
-        let tbl = grid;
-        tbl[0] = dataX;
-        tbl[1] = dataY;
-        for (let i=1;i<n;i++){
-            for (let j=0;j<n+1-i;i++){
-                try{
-                    tbl[i+1][j] = tbl[i][j]-tbl[i][j+1];
-                }
-                catch(err){
-                    console.log(i+"ERROR"+j)
-                }
+        const tbl = []
+        for (let i=0;i<=n;i++){
+            if (i==0) {tbl[i] = [0,0.25,0.50,0.75,1.00].reverse();continue;}
+            if (i==1) {tbl[i] = [1,1.5314,2.1281,2.7984,3.5597].reverse();continue}
+            else tbl[i] = []
+            for (let j=0;j<n-i+1;j++){
+                tbl[i][j] = tbl[i-1][j] - tbl[i-1][j+1]
             }
         }
         console.log(tbl)
         setGrid(tbl);
+        console.log(grid)
     }
 
     return (
