@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-import Table from './table/table'
+import Table from './table/tableUtil'
 
 export default function Ngip() {
     //state variables

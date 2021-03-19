@@ -1,28 +1,24 @@
-import React,{useState} from 'react';
-
-
-export default function Table({n,dataX,dataY}) {
-    //state
-    const [grid,setGrid] = useState([]);
-
-    const constructTable = ()=>{
-        const tbl = []
-        for (let i=0;i<=n;i++){
-            if (i==0) {tbl[i] = dataX.reverse();continue;}
-            if (i==1) {tbl[i] = dataY.reverse();continue}
-            else tbl[i] = []
-            for (let j=0;j<n-i+1;j++){
-                tbl[i][j] = tbl[i-1][j] - tbl[i-1][j+1]
+import React from 'react'
+import {Table as Tbl} from 'react-bootstrap';
+export default function Table({grid,fwdPoly,bkwdPoly}) {
+    
+    const table = grid.map((row,i,g)=>{
+        return <tr key={i}>
+            {
+            row.map((num,j,r)=>{
+                return <td key={j}>{num}</td>
+            })
             }
-        }
-        console.log(tbl)
-        setGrid(tbl);
-        console.log(grid)
-    }
-
+        </tr>
+    });
     return (
         <div>
-            <button onClick = {()=>{constructTable()}}>Click</button>
+            Hulloa
+            <Tbl striped bordered hover size="sm">
+                <tbody>
+                {table}
+                </tbody>
+            </Tbl>
         </div>
     )
 }
