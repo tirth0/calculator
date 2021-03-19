@@ -1,10 +1,11 @@
 import React,{useState,Fragment} from 'react'
 import TableUtil from './table/tableUtil'
+import Polynomial from './table/Polynomial'
 
 export default function Ngip() {
     //state variables
     
-    const [inputFields,setInputFields] = useState([{x:0,y:0}])
+    const [inputFields,setInputFields] = useState([{x:'',y:''}])
     const [n,setN] = useState(0);
     const [load,setLoad] = useState(false)
     const [show,setShow] = useState(false)
@@ -16,7 +17,7 @@ export default function Ngip() {
         setTimeout(()=>{
             setLoad(false);
             setShow(true);
-        },1000);
+        },200);
     }
 
     const handleInputChange = (index, event) => {
@@ -30,7 +31,7 @@ export default function Ngip() {
       };
     const handleAddFields = () => {
         const values = [...inputFields];
-        values.push({ x: 0, y: 0 });
+        values.push({ x: '', y: '' });
         setInputFields(values);
         setN(n+1);
       };
@@ -45,6 +46,7 @@ export default function Ngip() {
     
     return (
         <div>
+            <Polynomial/>
             <form
             onSubmit = {handleSubmit}>
                {
