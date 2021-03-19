@@ -6,22 +6,25 @@ export default function Table({grid,fwdPoly,bkwdPoly,n}) {
         return <tr key={i}>
             {
             row.map((num,j,r)=>{
+                if (num===0){
+                    return <td key={j}></td>
+                }
                 return <td key={j}>{num}</td>
             })
             }
         </tr>
     });
-    const h = Array(n+1).fill(0);
+    const h = Array(n+2).fill(0);
     const head = h.map((elem,i)=>{
         if (i===0) return <th key={i}>x</th>
         if (i===1) return <th key={i}>y</th>
         else{
-            return <th key={i}>&Delta;{(i-2)===0?'':<sup>{i-2}</sup>}y</th>
+            return <th key={i}>&Delta;{(i-2)===0?'':<sup>{i-1}</sup>}y</th>
         }
     })
     return (
         <div>
-            Hulloa
+            
             <Tbl striped bordered hover size="sm">
                 <thead>
                     <tr>

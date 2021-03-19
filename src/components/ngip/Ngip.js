@@ -1,11 +1,9 @@
-import React,{useState,useEffect,useRef,Fragment} from 'react'
+import React,{useState,Fragment} from 'react'
 import TableUtil from './table/tableUtil'
 
 export default function Ngip() {
     //state variables
     
-    const dataX = [0,0.25,0.50,0.75,1.00]
-    const dataY = [1,1.5314,2.1281,2.7984,3.5597]
     const [inputFields,setInputFields] = useState([{x:0,y:0}])
     const [n,setN] = useState(0);
     const [load,setLoad] = useState(false)
@@ -14,18 +12,19 @@ export default function Ngip() {
     const handleSubmit = (e)=>{
         e.preventDefault();
         console.log(inputFields);
-        setLoad = true;
+        setLoad(true);
         setTimeout(()=>{
-            
-        });
+            setLoad(false);
+            setShow(true);
+        },1000);
     }
 
     const handleInputChange = (index, event) => {
         const values = [...inputFields];
         if (event.target.name === "x") {
-          values[index].x = parseInt(event.target.value,10);
+          values[index].x = event.target.value;
         } else {
-          values[index].y = parseInt(event.target.value,10);
+          values[index].y = event.target.value;
         }
         setInputFields(values);
       };
@@ -50,7 +49,7 @@ export default function Ngip() {
             onSubmit = {handleSubmit}>
                {
                 <div className="form-row">
-                   {inputFields.map((inputField, index) => (
+                   {!show?inputFields.map((inputField, index) => (
                      <Fragment key={`${inputField}~${index}`}>
                        <div className="form-group col-sm-6">
                          <label htmlFor="x">X value</label>
@@ -91,8 +90,8 @@ export default function Ngip() {
                          </button>
                        </div>
                      </Fragment>
-                    ))}
-                    <div className="submit-button">
+                    )):null}
+                    {!show?<div className="submit-button">
                         <button
                             className="btn btn-primary mr-2"
                             type="submit"
@@ -100,11 +99,16 @@ export default function Ngip() {
                         >
                             Calculate
                         </button>
-                    </div>
+                    </div>:null}
                 </div>
                }
             </form>
-            
+            <TableUtil 
+                n={n} 
+                dataX={inputFields.map((elem,i)=>{return parseFloat(elem.x)})} 
+                dataY={inputFields.map((elem,i)=>{return parseFloat(elem.y)})} 
+                show={show}>
+            </TableUtil>
         </div>
     )
 }
