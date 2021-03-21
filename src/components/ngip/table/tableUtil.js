@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import Table from './Table';
 import {rotate270} from "2d-array-rotation";
 
+
 export default function TableUtil({n,dataX,dataY,show}) {
     //state
     const [grid,setGrid] = useState([]);

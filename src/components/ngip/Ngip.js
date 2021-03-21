@@ -1,6 +1,8 @@
 import React,{useState,Fragment} from 'react'
 import TableUtil from './table/tableUtil'
 import Polynomial from './table/Polynomial'
+import classes from './Ngip.module.css';
+import Form from './form/form'
 
 export default function Ngip() {
     //state variables
@@ -45,54 +47,20 @@ export default function Ngip() {
 
     
     return (
-        <div>
-            <Polynomial/>
-            <form
+        <div className={classes.Top}>
+            
+            <form className={classes.Form}
             onSubmit = {handleSubmit}>
                {
-                <div className="form-row">
-                   {!show?inputFields.map((inputField, index) => (
-                     <Fragment key={`${inputField}~${index}`}>
-                       <div className="form-group col-sm-6">
-                         <label htmlFor="x">X value</label>
-                         <input
-                           type="text"
-                           className="form-control"
-                           id="x"
-                           name="x"
-                           value={inputField.x}
-                           onChange={event => handleInputChange(index, event)}
-                         />
-                       </div>
-                       <div className="form-group col-sm-4">
-                         <label htmlFor="y">Y value</label>
-                         <input
-                           type="text"
-                           className="form-control"
-                           id="y"
-                           name="y"
-                           value={inputField.y}
-                           onChange={event => handleInputChange(index, event)}
-                         />
-                       </div>
-                       <div className="form-group col-sm-2">
-                         <button
-                           className="btn btn-link"
-                           type="button"
-                           onClick={() => handleRemoveFields(index)}
-                         >
-                           -
-                         </button>
-                         <button
-                           className="btn btn-link"
-                           type="button"
-                           onClick={() => handleAddFields()}
-                         >
-                           +
-                         </button>
-                       </div>
-                     </Fragment>
-                    )):null}
+                <div className={classes.formrow}>
+                   {!show?<Form
+                    handleSubmit = {handleSubmit}
+                    handleInputChange = {handleInputChange}
+                    handleAddFields = {handleAddFields}
+                    handleRemoveFields = {handleRemoveFields}
+                    inputFields = {inputFields}
+                    setInputFields = {setInputFields}
+                   />:null}
                     {!show?<div className="submit-button">
                         <button
                             className="btn btn-primary mr-2"
