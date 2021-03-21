@@ -3,7 +3,7 @@ import Table from './Table';
 import {rotate270} from "2d-array-rotation";
 
 
-export default function TableUtil({n,dataX,dataY,show}) {
+export default function TableUtil({n,dataX,dataY}) {
     //state
     const [grid,setGrid] = useState([]);
     const [fwdPoly,setFwdPoly] = useState([]);
@@ -43,8 +43,8 @@ export default function TableUtil({n,dataX,dataY,show}) {
     
     return (
         <div>
-            {show?<button onClick={constructTable}>Show Result</button>:null}
-            {show && disp?<Table grid={grid} fwdPoly={fwdPoly} bkwdPoly={bkwdPoly} n={n}></Table>:null}
+            
+            <Table grid={grid} fwdPoly={fwdPoly} bkwdPoly={bkwdPoly} n={n}></Table>
         </div>
     )
 }

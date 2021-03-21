@@ -1,14 +1,11 @@
 import React from 'react'
 import {Table as Tbl} from 'react-bootstrap';
 export default function Table({grid,fwdPoly,bkwdPoly,n}) {
-    
     const table = grid.map((row,i,g)=>{
         return <tr key={i}>
             {
             row.map((num,j,r)=>{
-                if (num===0){
-                    return <td key={j}></td>
-                }
+               
                 return <td key={j}>{num}</td>
             })
             }

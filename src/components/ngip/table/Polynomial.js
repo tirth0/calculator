@@ -16,7 +16,7 @@ export default function NGPolynomial({n=5,fwdPoly,bkwdPoly,h}) {
             else p.push([ind+1])
         })
         console.log(p)
-        console.log(Number.MAX_SAFE_INTEGER);
+        
     }
     const[q,setQ] = useState()
     const p2 = Polynomial([0,1]);

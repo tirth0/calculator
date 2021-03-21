@@ -1,7 +1,7 @@
 import React from 'react'
 import classes from './form.module.css'
 
-export default function Form({handleSubmit,handleInputChange,handleAddFields,handleRemoveFields,inputFields,setInputFields}) {
+export default function Form({handleSubmit,handleInputChange,handleAddFields,handleRemoveFields,inputFields,setInputFields,n}) {
     return (
         <div>
            { inputFields.map((inputField, index) => (
@@ -28,14 +28,16 @@ export default function Form({handleSubmit,handleInputChange,handleAddFields,han
                            onChange={event => handleInputChange(index, event)}
                          />
                        </div>
-                       <div className={classes.formGroup1}>
+                       
+                        <div className={classes.formGroup1}>
+                        {n>0?
                          <button
                            className="btn"
                            type="button"
                            onClick={() => handleRemoveFields(index)}
                          >
                            -
-                         </button>
+                         </button>:null}
                          <button
                            className="btn "
                            type="button"
