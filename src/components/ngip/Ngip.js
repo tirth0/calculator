@@ -5,7 +5,7 @@ import classes from './Ngip.module.css';
 import Form from './form/form'
 import Loader from "react-loader-spinner";
 import {rotate270} from "2d-array-rotation";
-import Table from './table/Table';
+import Table from './table/Table'
 
 export default function Ngip() {
     //state variables
