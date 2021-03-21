@@ -1,5 +1,4 @@
 import React,{useState,Fragment} from 'react'
-import TableUtil from './table/tableUtil'
 import Polynomial from './table/Polynomial'
 import classes from './Ngip.module.css';
 import Form from './form/form'
