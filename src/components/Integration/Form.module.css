@@ -1,0 +1,51 @@
+.Top{
+    width: 100%;
+    height: 100%;
+    
+}
+
+
+
+.Form{
+    height: auto;
+    
+}
+
+.inputs{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.inputs>input{
+    width: 100%;
+}
+
+
+.formGroup{
+    width: 40%;
+    margin-bottom: 2rem;
+}
+
+.formGroup1{
+    display: flex;
+}
+
+.formGroup1>button:hover{
+    color: white;
+    text-decoration: none;
+    background-color: #0044ffd5;
+    transform: scale(1.1);
+    transition: 0.4s;
+}
+.formGroup1>button{
+    color: white;
+    background-color: #007bff;
+    margin: 0.5rem;
+    border-radius: 100%;
+    width: 3rem;
+    text-decoration: none;
+    font-size: 1.5rem;
+    outline: none !important;
+    transition: 0.4s;
+}

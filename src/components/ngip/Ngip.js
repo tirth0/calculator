@@ -60,8 +60,8 @@ export default function Ngip() {
         
         const fwd = []
         const bkwd = []
-        for (let i=2;i<=n;i++){
-            fwd.push(tbl[i][n-i])
+        for (let i=2;i<=n+1;i++){
+            fwd.push(tbl[i][n-i+1])
             bkwd.push(tbl[i][0])
         }
         // const tbl2 = _.zip(...tbl)
@@ -90,6 +90,7 @@ export default function Ngip() {
     
     return (
         <div className={classes.Top}>
+
             <h2>Newton Gregory Forward and Backward Interpolation</h2>
             {!show?
             <div className={classes.formC}>
@@ -122,7 +123,7 @@ export default function Ngip() {
             {load?
             <div className={classes.Loader}>
             <Loader
-                type="GRID"
+                type="Grid"
                 color="#00BFFF"
                 height={100}
                 width={100}
@@ -136,6 +137,10 @@ export default function Ngip() {
                 bkwdPoly= {bkwdPoly}
                 n={n}
               />
+              <Polynomial 
+              fwdPoly={fwdPoly}
+              bkwdPoly={bkwdPoly}
+              n={n}/>
             </div>:null}
       </div>
     )
