@@ -1,5 +1,4 @@
-import React,{useState,Fragment} from 'react'
-import Polynomial from './table/Polynomial'
+import React,{useState} from 'react'
 import classes from './Ngip.module.css';
 import Form from './form/form'
 import Loader from "react-loader-spinner";
@@ -16,7 +15,7 @@ export default function Ngip() {
     const [grid,setGrid] = useState([]);
     const [fwdPoly,setFwdPoly] = useState([]);
     const [bkwdPoly,setBkwdPoly] = useState([]);
-    const [disp,setDisp] = useState(false)
+    
 
     
     
